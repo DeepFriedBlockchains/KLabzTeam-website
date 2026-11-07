@@ -7,9 +7,9 @@ A lightweight static landing page for **Kasual Labz**, the development team unde
 The deployable static website is in `site/`:
 
 - `index.html` contains homepage content, SEO/social metadata, the Projects board, and the Kasquatch launch announcement toast.
-- `projects/kasquatch/index.html` is the dedicated Kasquatch token page.
-- `styles.css` contains the responsive visual system, toast, project cards, and reduced-motion behavior.
-- `script.js` contains mobile navigation, the one-time-per-session launch toast, and footer year update.
+- `projects/kasquatch/index.html` is the dedicated Kasquatch token page, including the tokenomics section and native expandable explanations.
+- `styles.css` contains the responsive visual system, toast, project cards, tokenomics cards, and reduced-motion behavior.
+- `script.js` contains mobile navigation, the one-time-per-session launch toast, token-ID copy feedback, and footer year update.
 - `assets/` contains supplied Kasual Labz and Kasquatch artwork. The transparent Kasquatch main logo is used as the featured token artwork. The dedicated page uses an optimized crop of the supplied forest poster as a quiet backdrop.
 - `favicon.png`, `robots.txt`, `sitemap.xml`, and `manus-routes.json` support browser identity and discoverability.
 
@@ -29,7 +29,7 @@ Then open `http://localhost:3000` and `http://localhost:3000/projects/kasquatch/
 
 Update page copy in the relevant HTML file; keep public-facing copy in HTML rather than in images. Update layout and colors in `site/styles.css`. Keep `prefers-reduced-motion` support when adding motion. Assets supplied for Kasual Labz and Kasquatch are stored in `site/assets/`; preserve their proportions, transparency, and visual treatment.
 
-The homepage announcement uses `sessionStorage` so it is shown at most once per browser session, whether it times out or is dismissed. Keep the route manifest synchronized with actual pages. After edits, check desktop and mobile layouts, internal navigation, the Kasseal token URL, the verified Kasquatch X profile, `mailto:contact@kasuallabz.xyz`, and the existing Kasual Labz X link. Do not add unapproved claims or token statistics.
+The homepage announcement uses `sessionStorage` so it is shown at most once per browser session, whether it times out or is dismissed. Keep the route manifest synchronized with actual pages. After edits, check desktop and mobile layouts, internal navigation, the Kasseal token URL, the verified Kasquatch X profile, `mailto:contact@kasuallabz.xyz`, and the existing Kasual Labz X link. Recheck token supply and fee facts on Kasseal when changing tokenomics copy; do not add allocation assumptions or fixed market figures. The page provides a jump link to tokenomics, expandable explanations, and a copy-token-ID control.
 
 ## GitHub Pages deployment
 

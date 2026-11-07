@@ -4,7 +4,7 @@
 
 Maintain the lightweight, static Kasual Labz website at `https://kasuallabz.xyz`. Kasual Labz is the development team under NF Projects. Preserve the existing homepage, About, Focus, Contact, SEO, and accessibility content while adding a featured Kasquatch ($KSQT) project card, two additional concise project listings, a one-time launch toast, and the dedicated `/projects/kasquatch/` page.
 
-The public Kasquatch page describes it as a community-driven KCC-20 meme token launched on Kaspa through Kasseal. It displays only token facts verified at the official Kasseal launch page and links to Kasseal and the Kasquatch X profile linked from that page. No market or token statistics are embedded. The NFP-XTMMiner and Kaspa Fork listings use only the status and short descriptions provided for this update; the Kaspa Fork remains intentionally minimal and does not reveal a private name, technical detail, repository, progress, or documentation.
+The public Kasquatch page describes it as a community-driven KCC-20 meme token launched on Kaspa through Kasseal. It displays the official listing's current supply and fee data, its sealed-supply statement, and bonding-curve launch format. It omits changing market metrics and does not invent an allocation or vesting breakdown. The page links to Kasseal and the Kasquatch X profile linked from that page. The NFP-XTMMiner and Kaspa Fork listings use only the status and short descriptions provided for this update; the Kaspa Fork remains intentionally minimal and does not reveal a private name, technical detail, repository, progress, or documentation.
 
 The site remains static: no account system, database, contact-form backend, analytics, paid APIs, or additional service dependencies. Implement and preview this change on a feature branch. Do not merge it into the production branch or deploy it without explicit approval. Do not change DNS, account access, billing, or unrelated services.
 
@@ -16,11 +16,11 @@ The site remains static: no account system, database, contact-form backend, anal
 
 **Color philosophy.** Near-black and blue-black surfaces retain the existing site identity. Mint-teal frames interactive and live signals. Silver-white copy remains readable against dark forest artwork.
 
-**Layout paradigm.** Keep the existing editorial homepage layout. Present the Projects board as a consistent responsive stack of cards, with Kasquatch first and visually featured. Give the dedicated token page a full-width wilderness image backdrop, centered transparent main logo, and a readable token-facts section.
+**Layout paradigm.** Keep the existing editorial homepage layout. Present the Projects board as a consistent responsive stack of cards, with Kasquatch first and visually featured. Give the dedicated token page a full-width wilderness image backdrop, centered transparent main logo, and readable token facts followed by a scannable tokenomics section, with an in-page jump link for quick access.
 
 **Signature elements.** Reuse the Kasquatch mascot and wilderness banner; use compact status labels and thin teal rules aligned with the existing studio styling.
 
-**Interaction philosophy.** All navigation, card links, and external actions lead to meaningful destinations. The launch toast never captures focus, is dismissible, and does not block page interaction.
+**Interaction philosophy.** All navigation, card links, and external actions lead to meaningful destinations. The launch toast never captures focus, is dismissible, and does not block page interaction. Use native expandable explanations for supply and fee details and a copy-to-clipboard control for the token ID.
 
 **Animation.** The announcement appears after approximately 1.5 seconds and fades/slides in, then disappears after eight seconds. It appears at most once per browser session, including if dismissed. Reduced-motion preferences disable its transition. Existing site animation behavior and reduced-motion support remain intact.
 
@@ -36,7 +36,7 @@ The site remains static: no account system, database, contact-form backend, anal
 
 ## Implementation and project structure
 
-Use semantic HTML, custom CSS, and the existing vanilla JavaScript. No new dependency is needed. The JavaScript handles the accessible mobile navigation, session-scoped toast, and current year. Content, links, and token data remain in HTML. CSS controls card layout, project-page presentation, responsiveness, focus states, and reduced motion.
+Use semantic HTML, custom CSS, and the existing vanilla JavaScript. No new dependency is needed. The JavaScript handles the accessible mobile navigation, session-scoped toast, token-ID copy feedback, and current year. Content, links, and token data remain in HTML. CSS controls card layout, project-page presentation, responsiveness, focus states, and reduced motion.
 
 ```text
 site/
@@ -50,8 +50,7 @@ site/
     ├── kasual-k-mark.webp
     ├── obsidian-peaks.webp
     ├── kasquatch-main-logo.png         # Supplied transparent token logo
-    ├── kasquatch-forest-backdrop.webp    # Optimized supplied forest artwork
-    └── kasquatch-forest-poster.png     # Supplied forest poster
+    └── kasquatch-forest-backdrop.webp  # Optimized supplied forest artwork
 ```
 
 The existing GitHub Pages workflow publishes the static `site/` folder from `main`; this task must remain on a feature branch and not trigger that production workflow.

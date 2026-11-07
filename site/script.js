@@ -6,9 +6,23 @@
   const navigationLinks = navigation ? navigation.querySelectorAll('a') : [];
   const currentYear = document.querySelector('#current-year');
   const launchToast = document.querySelector('#launch-toast');
+  const copyTokenButton = document.querySelector('#copy-token-id');
+  const tokenIdValue = document.querySelector('#token-id-value');
+  const copyFeedback = document.querySelector('#copy-feedback');
 
   if (currentYear) {
     currentYear.textContent = String(new Date().getFullYear());
+  }
+
+  if (copyTokenButton && tokenIdValue && copyFeedback) {
+    copyTokenButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(tokenIdValue.textContent.trim());
+        copyFeedback.textContent = 'Token ID copied.';
+      } catch {
+        copyFeedback.textContent = 'Copy unavailable. Select the ID above to copy it.';
+      }
+    });
   }
 
   if (launchToast && !sessionStorage.getItem('kasquatch-launch-seen')) {
