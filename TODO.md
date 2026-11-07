@@ -16,6 +16,6 @@
 
 - [x] **Verify and preview the feature branch.** Run available project checks, inspect homepage and project page at desktop and mobile sizes, verify internal navigation and external links, confirm supplied images load and transparency is retained, inspect console/network errors, and provide a preview or screenshots. Record only checks actually completed.
 
-- [ ] **Publish the branch for review.** Commit the focused update and push the feature branch to `DeepFriedBlockchains/KLabzTeam-website`. Do not merge or deploy without explicit approval. Preserve unrelated changes and do not force-push.
+- [x] **Publish the branch for review.** Commit the focused update and push the feature branch to `DeepFriedBlockchains/KLabzTeam-website`. Do not merge or deploy without explicit approval. Preserve unrelated changes and do not force-push.
 
 - [ ] **Production deployment and domain verification.** Only after explicit approval, follow the repository's production deployment and verification process. Do not change Cloudflare DNS for this feature update. If future domain changes are needed, inspect and record current DNS first and preserve every mail-related and unrelated record.
