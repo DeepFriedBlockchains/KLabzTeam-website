@@ -335,3 +335,37 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
   .price-usd-value { transition: none; }
   .price-usd-value.is-up, .price-usd-value.is-down { color: #aebfbb; text-shadow: none; }
 }
+
+
+/* Homepage wordmark and contact-platform marks */
+.site-header .brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2048 / 682;
+  object-fit: contain;
+  object-position: left center;
+}
+.signal-card img,
+.about-mark img {
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
+}
+.contact-link-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+.contact-social-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  fill: currentColor;
+}
+@media (max-width: 620px) {
+  .header-shell { min-height: 74px; }
+  .brand { width: clamp(148px, 42vw, 164px); }
+}
