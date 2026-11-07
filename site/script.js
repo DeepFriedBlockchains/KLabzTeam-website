@@ -5,9 +5,25 @@
   const navigation = document.querySelector('.primary-nav');
   const navigationLinks = navigation ? navigation.querySelectorAll('a') : [];
   const currentYear = document.querySelector('#current-year');
+  const launchToast = document.querySelector('#launch-toast');
 
   if (currentYear) {
     currentYear.textContent = String(new Date().getFullYear());
+  }
+
+  if (launchToast && !sessionStorage.getItem('kasquatch-launch-seen')) {
+    sessionStorage.setItem('kasquatch-launch-seen', '1');
+    const dismissButton = launchToast.querySelector('.launch-toast-close');
+    const hideToast = () => {
+      launchToast.classList.remove('is-visible');
+      launchToast.setAttribute('aria-hidden', 'true');
+    };
+    window.setTimeout(() => {
+      launchToast.setAttribute('aria-hidden', 'false');
+      launchToast.classList.add('is-visible');
+      window.setTimeout(hideToast, 8000);
+    }, 1500);
+    if (dismissButton) dismissButton.addEventListener('click', hideToast);
   }
 
   if (!toggle || !navigation) return;

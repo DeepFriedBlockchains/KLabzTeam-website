@@ -102,3 +102,100 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }.network-node, .network-line, .status-dot { animation: none; }.button, .contact-link, .focus-item, .focus-arrow, .primary-nav, .nav-toggle span { transition: none; }
 }
+
+
+/* Kasquatch project board */
+.project-board { display: grid; gap: 18px; }
+.project-card { position: relative; display: grid; grid-template-columns: minmax(140px, .58fr) minmax(0, 1fr); min-height: 250px; overflow: hidden; border: 1px solid rgba(121, 255, 235, .25); background: linear-gradient(130deg, rgba(9, 43, 37, .88), rgba(5, 21, 19, .94)); box-shadow: 12px 12px 0 rgba(0, 0, 0, .13); }
+.project-card::after { position: absolute; top: -45px; right: -30px; width: 170px; height: 170px; content: ''; border: 1px solid rgba(159, 255, 240, .1); border-radius: 50%; pointer-events: none; }
+.project-card-art { display: grid; min-height: 100%; place-items: center; padding: 20px; background: radial-gradient(circle, rgba(68, 240, 213, .13), transparent 70%); }
+.project-card-art img { width: min(100%, 210px); height: auto; filter: drop-shadow(0 0 22px rgba(68, 240, 213, .22)); }
+.project-card-copy { position: relative; z-index: 1; align-self: center; padding: 28px clamp(20px, 3vw, 38px); }
+.project-card-status { display: flex; align-items: center; gap: 8px; color: var(--mint-bright); font-size: .67rem; font-weight: 850; letter-spacing: .12em; }
+.project-card-status .status-dot { width: 7px; height: 7px; }
+.project-network { margin-left: auto; color: #aec7c1; font-size: .61rem; }
+.project-card .project-overline { margin-top: 17px; font-size: .61rem; }
+.project-card h3 { margin: 10px 0 12px; color: var(--silver); font-size: clamp(1.65rem, 3vw, 2.65rem); letter-spacing: -.055em; line-height: 1.05; }
+.project-card h3 span { color: var(--mint); font-size: .72em; }
+.project-card-copy > p:not(.project-overline) { max-width: 440px; margin: 0; color: #bed5cf; font-size: .94rem; }
+.project-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 19px; color: var(--mint-bright); font-size: .74rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+.project-link:hover { color: white; }
+.project-note { display: inline-block; margin-top: 16px; padding: 5px 9px; border: 1px solid var(--line); color: #c0d3ce; font-size: .67rem; letter-spacing: .08em; text-transform: uppercase; }
+.project-card-upcoming { display: block; min-height: 0; border-color: rgba(177, 255, 242, .14); background: rgba(7, 23, 20, .75); box-shadow: none; }
+.project-card-upcoming .project-card-copy { padding-top: 25px; padding-bottom: 25px; }
+.project-card-upcoming .project-card-status { color: #e0c98b; font-size: .62rem; }
+.project-card-upcoming .project-card-status .status-dot { background: #e0c98b; box-shadow: 0 0 12px rgba(224, 201, 139, .45); }
+.project-card-upcoming h3 { margin-bottom: 9px; font-size: clamp(1.4rem, 2.5vw, 2rem); }
+.project-card-minimal { background: rgba(4, 15, 14, .67); }
+.project-card-minimal .project-card-status { color: #b7c8c4; }
+.project-card-minimal .project-card-status .status-dot { background: #9fb0ac; box-shadow: none; }
+
+/* Kasquatch launch toast */
+.launch-toast { position: fixed; z-index: 40; right: 24px; bottom: 24px; display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 13px; width: min(390px, calc(100vw - 32px)); padding: 16px 42px 16px 14px; border: 1px solid rgba(121, 255, 235, .4); border-radius: 13px; background: rgba(5, 22, 19, .97); box-shadow: 0 18px 55px rgba(0, 0, 0, .42), 0 0 28px rgba(68, 240, 213, .1); opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity 220ms ease, transform 220ms ease, visibility 220ms; }
+.launch-toast.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.launch-toast img { align-self: center; width: 60px; height: 60px; object-fit: contain; }
+.launch-toast-copy p { margin: 0; }
+.launch-toast { pointer-events: none; }
+.launch-toast-close, .launch-toast-copy a { pointer-events: auto; }
+.launch-toast-title { color: var(--mint-bright); font-size: .72rem; font-weight: 900; letter-spacing: .09em; }
+.launch-toast-copy p:nth-child(2) { margin-top: 3px; color: #d6e5e1; font-size: .78rem; line-height: 1.4; }
+.launch-toast-copy a { display: inline-flex; gap: 8px; margin-top: 8px; color: var(--mint); font-size: .67rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+.launch-toast-close { position: absolute; top: 7px; right: 8px; display: grid; width: 30px; height: 30px; place-items: center; border: 0; border-radius: 50%; color: #d4e3df; background: transparent; font-size: 1.35rem; cursor: pointer; }
+.launch-toast-close:hover { color: var(--mint-bright); background: rgba(255, 255, 255, .08); }
+
+/* Kasquatch dedicated page */
+.kasquatch-main { overflow: hidden; }
+.kasquatch-hero { position: relative; min-height: 640px; display: grid; place-items: center; overflow: hidden; isolation: isolate; border-bottom: 1px solid var(--line); text-align: center; }
+.kasquatch-banner { position: absolute; z-index: -2; inset: 0; background: linear-gradient(180deg, rgba(3, 9, 8, .34), rgba(3, 9, 8, .42) 54%, #06110f 100%), url('/assets/kasquatch-forest-backdrop.webp') center 38% / cover no-repeat; opacity: .82; }
+.kasquatch-hero::after { position: absolute; z-index: -1; inset: 0; content: ''; background: radial-gradient(ellipse at center 42%, rgba(3, 14, 12, .5), transparent 58%); }
+.kasquatch-hero-inner { width: min(760px, calc(100% - 40px)); padding: 35px 0 76px; }
+.back-to-projects { display: inline-flex; gap: 9px; align-items: center; margin-bottom: 12px; color: #d0e0db; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.back-to-projects:hover { color: var(--mint-bright); }
+.kasquatch-main-logo { width: clamp(190px, 25vw, 285px); margin: 0 auto 18px; filter: drop-shadow(0 9px 30px rgba(0, 0, 0, .58)) drop-shadow(0 0 19px rgba(68, 240, 213, .24)); }
+.kasquatch-hero .project-overline { margin-bottom: 11px; }
+.kasquatch-hero h1 { max-width: none; margin: 0; font-size: clamp(2.5rem, 7vw, 5.5rem); }
+.kasquatch-hero h1 span { color: var(--mint); }
+.kasquatch-tagline { margin: 11px 0 15px; color: var(--mint-bright); font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 900; letter-spacing: .18em; }
+.kasquatch-intro { max-width: 680px; margin: 0 auto 23px; color: #e1efec; font-size: clamp(.97rem, 1.7vw, 1.12rem); line-height: 1.7; text-shadow: 0 2px 16px #000; }
+.token-details { padding: clamp(65px, 9vw, 115px) 0; background: rgba(4, 13, 12, .45); }
+.token-details-inner { display: grid; grid-template-columns: minmax(230px, .7fr) minmax(0, 1.3fr); gap: 28px clamp(35px, 8vw, 100px); align-items: start; }
+.token-details h2 { font-size: clamp(2.2rem, 4vw, 3.6rem); }
+.token-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line-strong); }
+.token-facts > div { padding: 16px 12px 16px 0; border-bottom: 1px solid var(--line); }
+.token-facts dt { color: var(--muted); font-size: .65rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.token-facts dd { margin: 5px 0 0; color: var(--silver); font-weight: 720; }
+.token-facts code { color: var(--mint-bright); font-size: .75rem; overflow-wrap: anywhere; }
+.token-facts .token-id { grid-column: 1 / -1; }
+.kasquatch-socials { grid-column: 2; }
+.kasquatch-socials p { margin: 12px 0 0; color: var(--muted); font-size: .78rem; }
+
+@media (max-width: 820px) {
+  .project-card { grid-template-columns: 150px minmax(0, 1fr); }
+  .project-card-art img { width: 140px; }
+  .token-details-inner { grid-template-columns: 1fr; }
+  .kasquatch-socials { grid-column: 1; }
+}
+@media (max-width: 620px) {
+  .project-board { gap: 13px; }
+  .project-card { grid-template-columns: 92px minmax(0, 1fr); min-height: 0; }
+  .project-card-art { padding: 9px; }
+  .project-card-art img { width: 88px; }
+  .project-card-copy { padding: 20px 14px; }
+  .project-card-status { gap: 6px; font-size: .58rem; letter-spacing: .08em; }
+  .project-network { font-size: .52rem; }
+  .project-card .project-overline { margin-top: 12px; font-size: .55rem; }
+  .project-card h3 { font-size: 1.55rem; }
+  .project-card-copy > p:not(.project-overline) { font-size: .85rem; }
+  .project-card-upcoming .project-card-copy { padding: 18px 15px; }
+  .project-card-upcoming h3 { font-size: 1.35rem; }
+  .launch-toast { right: 12px; bottom: 12px; grid-template-columns: 48px minmax(0, 1fr); gap: 10px; width: calc(100vw - 24px); padding: 12px 38px 12px 11px; }
+  .launch-toast img { width: 48px; height: 48px; }
+  .kasquatch-hero { min-height: 610px; }
+  .kasquatch-banner { background-position: 40% center; }
+  .kasquatch-hero-inner { padding-top: 26px; }
+  .kasquatch-main-logo { width: 205px; }
+  .token-facts { grid-template-columns: 1fr 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .launch-toast { transition: none; }
+}
