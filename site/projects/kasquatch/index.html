@@ -22,6 +22,7 @@
     <meta name="twitter:image" content="https://kasuallabz.xyz/assets/kasquatch-forest-backdrop.webp">
     <link rel="stylesheet" href="/styles.css">
     <script src="/script.js" defer></script>
+    <script src="/kasquatch-live.js" defer></script>
   </head>
   <body class="kasquatch-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -69,27 +70,51 @@
       <section class="tokenomics section-frame" id="tokenomics" aria-labelledby="tokenomics-title">
         <div class="section-shell tokenomics-inner">
           <div class="tokenomics-heading">
-            <p class="kicker">Token facts from Kasseal</p>
-            <h2 id="tokenomics-title">Tokenomics, <em>clearly.</em></h2>
-            <p>Kasseal’s listing showed a 1.20B KSQT supply and the fee details below when checked on November 7, 2026. Market price, market cap, holder counts, and curve progress change over time, so check Kasseal for live figures.</p>
+            <h2 id="tokenomics-title">Tokenomics</h2>
           </div>
           <div class="tokenomics-grid">
-            <article class="tokenomics-card"><span class="tokenomics-label">Total supply</span><strong>1.20B <span>KSQT</span></strong><p>Supply amount shown on the Kasseal listing.</p></article>
-            <article class="tokenomics-card"><span class="tokenomics-label">Supply control</span><strong>Sealed at genesis</strong><p>Kasseal states no live cell can mint additional supply.</p></article>
-            <article class="tokenomics-card"><span class="tokenomics-label">Launch format</span><strong>Bonding curve</strong><p>KAS / KSQT pair on Kasseal.</p></article>
-            <article class="tokenomics-card"><span class="tokenomics-label">Fees listed by Kasseal</span><strong>Creator 0.50%</strong><p>Curve 0.50% · Pool 0.05%</p></article>
+            <article class="tokenomics-card"><span class="tokenomics-label">Total Supply</span><strong>1.20 Billion <span>KSQT</span></strong></article>
+            <article class="tokenomics-card"><span class="tokenomics-label">Supply Control</span><strong>Sealed at Genesis</strong></article>
+            <article class="tokenomics-card"><span class="tokenomics-label">Bonding Curve</span><strong>KAS/KSQT</strong></article>
+            <article class="tokenomics-card"><span class="tokenomics-label">Launchpad</span><strong>Kasseal</strong></article>
           </div>
-          <div class="tokenomics-details">
-            <details>
-              <summary>What does “sealed at genesis” mean?</summary>
-              <p>Kasseal says the supply is sealed at genesis and that no live cell can mint more KSQT. The listing does not provide an allocation or vesting schedule, so none is inferred here.</p>
-            </details>
-            <details>
-              <summary>How should I read the fee figures?</summary>
-              <p>Kasseal lists creator, curve, and pool fees separately. The displayed listing currently shows creator 0.50%, curve 0.50%, and pool 0.05%. Check the Kasseal trade screen for the current fee applicable to a transaction.</p>
-            </details>
+          <div class="tokenomics-fees" aria-label="Token fees">
+            <div><span>Creator Fee</span><strong>0.50%</strong></div>
+            <div><span>Bonding Curve Fee</span><strong>0.50%</strong></div>
+            <div><span>Pool Fee</span><strong>0.05%</strong></div>
           </div>
-          <p class="tokenomics-source">Source: <a href="https://app.kasseal.com/token/380151c0dd404ac59e9381a8b34ac05f7897d5fd327e2d50bceb33bf0256e535" target="_blank" rel="noopener noreferrer">official Kasseal listing <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>, checked November 7, 2026. Figures and platform fees can change.</p>
+          <p class="tokenomics-live-link">For live market data and trading information, visit <a href="https://app.kasseal.com/token/380151c0dd404ac59e9381a8b34ac05f7897d5fd327e2d50bceb33bf0256e535" target="_blank" rel="noopener noreferrer">Kasseal</a>.</p>
+        </div>
+      </section>
+      <section class="live-tracker section-frame" id="live-tracking" aria-labelledby="live-tracker-title">
+        <div class="section-shell live-tracker-inner">
+          <header class="live-tracker-header">
+            <div><p class="kicker">KSQT · KASPA MAINNET</p><h2 id="live-tracker-title">Live Token Tracking</h2></div>
+            <div class="tracker-meta"><p class="tracker-status" id="tracker-status" role="status" aria-live="polite">Loading live data…</p><p class="tracker-updated" id="tracker-updated">Waiting for update</p></div>
+          </header>
+          <div class="tracker-feature-grid">
+            <article class="tracker-panel curve-panel" aria-labelledby="curve-title">
+              <div class="tracker-panel-heading"><h3 id="curve-title">Bonding Curve Progress</h3><span class="curve-phase" id="curve-phase">Loading…</span></div>
+              <strong class="curve-progress-value" id="curve-progress-text">Loading…</strong>
+              <div class="curve-progress-track" id="curve-progress-meter" role="progressbar" aria-label="Bonding curve completion" aria-valuemin="0" aria-valuemax="100" aria-valuetext="Waiting for live data"><span class="curve-progress-fill" id="curve-progress-fill"></span></div>
+              <p class="curve-progress-caption" id="curve-remaining">Loading live curve progress…</p>
+            </article>
+            <article class="tracker-panel price-panel" aria-labelledby="price-title">
+              <div class="tracker-panel-heading"><h3 id="price-title">Live KSQT Price</h3><span class="price-pair">Spot Price</span></div>
+              <strong class="price-kas-value" id="price-kas">Loading…</strong>
+              <p class="price-usd-value" id="price-usd">Loading USD price…</p>
+              <p class="price-change-row"><span>24h Change</span><strong id="price-change">Loading…</strong></p>
+              <div class="price-chart-heading"><span>Price History</span><div class="chart-range-switch" role="group" aria-label="Price chart range"><button type="button" data-chart-range="24h" aria-pressed="true">24H</button><button type="button" data-chart-range="7d" aria-pressed="false">7D</button><button type="button" data-chart-range="30d" aria-pressed="false">30D</button></div></div>
+              <svg class="price-chart" id="price-chart" viewBox="0 0 600 150" role="img" aria-labelledby="price-chart-title price-chart-description"><title id="price-chart-title">KSQT price history</title><desc id="price-chart-description">Waiting for verified market data.</desc><path class="price-chart-area" id="price-chart-area"></path><path class="price-chart-line" id="price-chart-line"></path></svg>
+              <p class="price-chart-status" id="price-chart-status">Loading price history…</p>
+            </article>
+          </div>
+          <div class="tracker-stat-grid">
+            <article class="tracker-stat"><span>Market Cap · Spot × Supply</span><strong id="market-cap-kas">Loading…</strong><p id="market-cap-usd">Loading USD value…</p></article>
+            <article class="tracker-stat"><span>24h Trading Volume</span><strong id="volume-kas">Loading…</strong><p id="volume-usd">Loading USD value…</p></article>
+            <article class="tracker-stat"><span>Holders</span><strong id="holders-count">Loading…</strong></article>
+          </div>
+          <p class="tracker-source">Live market and KCC-20 data via the <a href="https://kascov.io/#/mainnet/dev" target="_blank" rel="noopener noreferrer">Kascov public API <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>.</p>
         </div>
       </section>
     </main>
