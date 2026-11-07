@@ -34,7 +34,7 @@ The homepage announcement uses `sessionStorage` so it is shown at most once per 
 
 ## GitHub Pages deployment
 
-`.github/workflows/deploy-pages.yml` publishes the committed `site/` directory whenever `main` changes. Work on the Kasquatch update is on a feature branch and must not be merged or deployed until the owner approves it. Do not merge or push these changes to `main` without that approval.
+`.github/workflows/deploy-pages.yml` publishes the committed `site/` directory whenever `main` changes. The approved Kasquatch update was fast-forwarded to `main` at commit `effc1bc`; GitHub Pages workflow run #4 succeeded. The primary domain and Kasquatch route are live over HTTPS, and `www.kasuallabz.xyz` redirects to the primary domain. Future production changes still require owner approval and should be reviewed on a feature branch first.
 
 The workflow uses GitHub’s official Pages actions and uploads only the static website, with no build-time secrets or credentials. GitHub Pages must be enabled once for the repository with the **GitHub Actions** publishing source; each later push to `main` deploys automatically.
 
