@@ -369,3 +369,12 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
   .header-shell { min-height: 74px; }
   .brand { width: clamp(148px, 42vw, 164px); }
 }
+
+
+/* Allow the longer organization and developer labels to fit beside their icons. */
+@media (min-width: 621px) {
+  .contact-link { grid-template-columns: 160px minmax(0, 1fr) auto; }
+}
+@media (max-width: 620px) {
+  .contact-link { grid-template-columns: 1fr auto; }
+}
