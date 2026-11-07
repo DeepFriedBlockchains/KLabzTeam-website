@@ -190,10 +190,14 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
   .project-card-upcoming h3 { font-size: 1.35rem; }
   .launch-toast { right: 12px; bottom: 12px; grid-template-columns: 48px minmax(0, 1fr); gap: 10px; width: calc(100vw - 24px); padding: 12px 38px 12px 11px; }
   .launch-toast img { width: 48px; height: 48px; }
-  .kasquatch-hero { min-height: 610px; }
-  .kasquatch-banner { background-position: 40% center; }
-  .kasquatch-hero-inner { padding-top: 26px; }
-  .kasquatch-main-logo { width: 205px; }
+  .kasquatch-hero { min-height: 0; }
+  .kasquatch-banner { background: url('/assets/kasquatch-forest-backdrop.webp') center top / 100% auto no-repeat; opacity: .7; }
+  .kasquatch-hero::after { background: linear-gradient(180deg, rgba(3, 9, 8, .16) 0%, rgba(3, 9, 8, .42) 19%, rgba(3, 9, 8, .74) 38%, #06110f 68%); }
+  .kasquatch-hero-inner { width: calc(100% - 32px); padding: 18px 0 38px; }
+  .back-to-projects { margin-bottom: 8px; }
+  .kasquatch-main-logo { width: clamp(152px, 44vw, 178px); height: auto; margin-bottom: 12px; object-fit: contain; }
+  .kasquatch-tagline { margin: 6px 0 10px; }
+  .kasquatch-intro { margin-bottom: 17px; font-size: .94rem; }
   .token-facts { grid-template-columns: 1fr 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
