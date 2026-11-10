@@ -2,6 +2,7 @@
   const openButton = document.querySelector('#donation-open');
   const dialog = document.querySelector('#donation-dialog');
   const closeButton = document.querySelector('#donation-close');
+  const menuOpenLink = document.querySelector('#donation-menu-open');
   const choices = document.querySelector('#donation-choices');
   const walletName = document.querySelector('#donation-wallet-name');
   const walletNetwork = document.querySelector('#donation-wallet-network');
@@ -25,6 +26,8 @@
   const isLocalDonationAsset = (value) => typeof value === 'string' && /^\/assets\/donations\/[a-z0-9-]+\.svg$/i.test(value);
   let wallets = [];
   let selectedWallet = null;
+  let scrollToDonationTimer = 0;
+  let scrollEndHandler = null;
 
   const buildChoice = (wallet) => {
     const button = document.createElement('button');
@@ -145,6 +148,47 @@
     if (event.target === dialog) dialog.close();
   });
 
+  const finishMenuDonationOpen = () => {
+    if (scrollToDonationTimer) window.clearTimeout(scrollToDonationTimer);
+    scrollToDonationTimer = 0;
+    if (scrollEndHandler) {
+      document.removeEventListener('scrollend', scrollEndHandler);
+      scrollEndHandler = null;
+    }
+    if (dialog.open || openButton.hidden) return;
+    openButton.focus({ preventScroll: true });
+    openButton.click();
+  };
+
+  if (menuOpenLink) {
+    menuOpenLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (dialog.open || openButton.hidden) return;
+
+      const buttonBounds = openButton.getBoundingClientRect();
+      const buttonAlreadyVisible = buttonBounds.top >= 0 && buttonBounds.bottom <= window.innerHeight;
+      if (buttonAlreadyVisible) {
+        finishMenuDonationOpen();
+        return;
+      }
+
+      if (scrollToDonationTimer) window.clearTimeout(scrollToDonationTimer);
+      if (scrollEndHandler) document.removeEventListener('scrollend', scrollEndHandler);
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        openButton.scrollIntoView({ behavior: 'auto', block: 'end' });
+        finishMenuDonationOpen();
+        return;
+      }
+
+      scrollEndHandler = finishMenuDonationOpen;
+      document.addEventListener('scrollend', scrollEndHandler, { once: true });
+      scrollToDonationTimer = window.setTimeout(finishMenuDonationOpen, 1400);
+      openButton.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    });
+  }
+
   fetch('/donation-wallets.json', { cache: 'no-store' })
     .then((response) => {
       if (!response.ok) throw new Error('Wallet configuration unavailable');
@@ -159,6 +203,7 @@
       selectedWallet = wallets.find(isConfiguredAddress) || wallets[0];
       selectWallet(selectedWallet);
       openButton.hidden = false;
+      if (menuOpenLink) menuOpenLink.hidden = false;
     })
     .catch(() => {
       // Keep the footer button hidden when the local wallet configuration cannot be loaded.

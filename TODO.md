@@ -14,6 +14,8 @@
 
 - [x] **Document preview, changes, and rollback.** Keep the site static and lightweight with no unnecessary dependencies. Update the route manifest and README for local development, deployment approval, future edits, and rollback. Keep content and links in HTML, use semantic and responsive layouts, visible focus states, and accessible image descriptions. Do not disclose unannounced private information or expose credentials.
 
+- [x] **Add donation access to the primary navigation.** Add a clearly labeled Support button in the top menu/dropdown on desktop and mobile. When activated, close the mobile dropdown if it is open, scroll to the existing footer donation button, and automatically open the same donation modal after scrolling completes. Respect reduced-motion settings, preserve the existing About, Projects, and Contact links and their behavior, and do not change unrelated page content.
+
 - [x] **Verify and preview the feature branch.** Run available project checks, inspect homepage and project page at desktop and mobile sizes, verify internal navigation and external links, confirm supplied images load and transparency is retained, inspect console/network errors, and provide a preview or screenshots. Record only checks actually completed.
 
 - [x] **Publish the branch for review.** Commit the focused update and push the feature branch to `DeepFriedBlockchains/KLabzTeam-website`. Do not merge or deploy without explicit approval. Preserve unrelated changes and do not force-push.

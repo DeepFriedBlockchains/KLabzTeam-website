@@ -45,6 +45,10 @@ img { display: block; max-width: 100%; }
 .primary-nav a::after { position: absolute; right: 0; bottom: 3px; left: 0; height: 1px; content: ''; transform: scaleX(0); transform-origin: right; background: var(--mint); transition: transform 180ms ease; }
 .primary-nav a:hover, .primary-nav a:focus-visible { color: var(--mint-bright); }
 .primary-nav a:hover::after, .primary-nav a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+.primary-nav .nav-donation-link { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink-deep); background: var(--mint); font-size: .68rem; font-weight: 850; letter-spacing: .12em; line-height: 1.2; text-transform: uppercase; transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease; }
+.primary-nav .nav-donation-link:hover, .primary-nav .nav-donation-link:focus-visible { border-color: var(--mint-bright); color: var(--ink-deep); background: var(--mint-bright); }
+.primary-nav .nav-donation-link::after { display: none; }
+.primary-nav .nav-donation-link[hidden] { display: none !important; }
 .nav-toggle { display: none; border: 0; color: var(--mint-bright); background: transparent; cursor: pointer; }
 
 .section-frame { position: relative; border-bottom: 1px solid var(--line); }
@@ -95,12 +99,13 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
 @media (max-width: 620px) {
   :root { --content: calc(100% - 32px); }
   .header-shell { min-height: 66px; }.brand { width: 150px; }.nav-toggle { position: relative; display: grid; width: 41px; height: 41px; place-content: center; gap: 6px; }.nav-toggle span:not(.sr-only) { display: block; width: 19px; height: 1px; background: currentColor; transition: transform 180ms ease; }.nav-toggle[aria-expanded='true'] span:nth-child(2) { transform: translateY(3.5px) rotate(45deg); }.nav-toggle[aria-expanded='true'] span:nth-child(3) { transform: translateY(-3.5px) rotate(-45deg); }.js .primary-nav { position: absolute; top: calc(100% + 1px); right: 0; left: 0; display: grid; gap: 0; padding: 10px 16px 16px; visibility: hidden; border-bottom: 1px solid var(--line-strong); background: rgba(3, 10, 9, .97); opacity: 0; transform: translateY(-8px); transition: opacity 160ms ease, transform 160ms ease, visibility 160ms; }.js .primary-nav.is-open { visibility: visible; opacity: 1; transform: translateY(0); }.primary-nav a { padding: 13px 0; }.primary-nav a::after { display: none; }
+  .primary-nav .nav-donation-link { justify-self: start; width: fit-content; margin-top: 8px; padding: 10px 14px; }
   .hero { min-height: auto; }.hero-shell { gap: 26px; padding: 72px 0 36px; }.eyebrow { font-size: .61rem; letter-spacing: .12em; }.hero-lede { line-height: 1.65; }.hero-actions { display: grid; }.button { width: 100%; }.signal-card { min-height: 192px; }.signal-card p { max-width: 225px; font-size: .85rem; }.signal-card img { width: 160px; right: 0; }.hero-bottomline { grid-template-columns: 1fr auto; padding: 13px 0; }.hero-bottomline span:nth-child(2) { display: none; }
   .about, .focus, .projects, .contact { padding: 78px 0; }.about-layout, .focus-intro, .contact-shell { grid-template-columns: 1fr; gap: 25px; }.section-index { flex-direction: row; align-items: center; }.section-index span:last-child { writing-mode: horizontal-tb; transform: none; }.about-mark, .contact-links { grid-column: 1; }.about-mark { min-height: 270px; padding-left: 0; border-left: 0; }.about-mark img { width: 210px; margin-left: 0; }.about-mark figcaption { margin-top: -24px; }.focus-list { margin-top: 42px; }.focus-item { grid-template-columns: 45px minmax(0, 1fr) auto; gap: 12px; }.focus-item p { font-size: .92rem; }.projects-layout { gap: 44px; }.project-status { margin-left: 0; }.project-status-footer { gap: 9px; font-size: .55rem; }.contact-link { grid-template-columns: 1fr auto; gap: 5px 15px; }.contact-link-label { grid-column: 1 / -1; }.footer-shell { display: grid; gap: 4px; min-height: auto; padding: 24px 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }.network-node, .network-line, .status-dot { animation: none; }.button, .contact-link, .focus-item, .focus-arrow, .primary-nav, .nav-toggle span { transition: none; }
+  html { scroll-behavior: auto; }.network-node, .network-line, .status-dot { animation: none; }.button, .contact-link, .focus-item, .focus-arrow, .primary-nav, .nav-toggle span, .primary-nav .nav-donation-link { transition: none; }
 }
 
 
