@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "wallets": [
+    {
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "network": "Bitcoin network",
+      "address": "1BAJrzXEXnq571Lzo8EpHQfZ1eB6KEKKY1",
+      "configured": true,
+      "logo": "/assets/donations/bitcoin.svg",
+      "qr": "/assets/donations/qr-btc.svg"
+    },
+    {
+      "symbol": "ETH",
+      "name": "Ethereum",
+      "network": "Ethereum network",
+      "address": "0x5900fc8084A314FEEeFD22427addE9641dEC657b",
+      "configured": true,
+      "logo": "/assets/donations/ethereum.svg",
+      "qr": "/assets/donations/qr-eth.svg"
+    },
+    {
+      "symbol": "ZEC",
+      "name": "ZCash",
+      "network": "ZCash network",
+      "address": "t1N3gJKqjU6m4bwVjqLEfouGoDoPR7fp7nV",
+      "configured": true,
+      "logo": "/assets/donations/zcash.svg",
+      "qr": "/assets/donations/qr-zec.svg"
+    },
+    {
+      "symbol": "KAS",
+      "name": "Kaspa",
+      "network": "Kaspa network",
+      "address": "kaspa:qq9wq25me0j7xsvfqydeqfz3q2wm4dw24jp69mzl240dfdpx6ktq2hphun746",
+      "configured": true,
+      "logo": "/assets/donations/kaspa.svg",
+      "qr": "/assets/donations/qr-kas.svg"
+    },
+    {
+      "symbol": "SOL",
+      "name": "Solana",
+      "network": "Solana network",
+      "address": "H5mVPZTAmCzrg9RLCCPv3tbX3ZsnVxgrmzsdQLuPak61",
+      "configured": true,
+      "logo": "/assets/donations/solana.svg",
+      "qr": "/assets/donations/qr-sol.svg"
+    }
+  ]
+}

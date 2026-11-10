@@ -24,6 +24,7 @@
     <meta name="twitter:image:alt" content="Kasual Labz teal K emblem">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <script src="donation.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -208,11 +209,47 @@
     </aside>
 
     <footer class="site-footer">
-      <div class="footer-shell">
+      <div class="footer-shell donation-footer-shell">
         <a class="footer-brand" href="#top">Kasual Labz</a>
         <p>A development team under NF Projects</p>
         <p>© <span id="current-year">2026</span></p>
+        <button class="donation-trigger" id="donation-open" type="button" hidden>Support Kasual Labz</button>
       </div>
+      <dialog class="donation-dialog" id="donation-dialog" aria-labelledby="donation-title" aria-describedby="donation-message">
+        <div class="donation-modal-header">
+          <div>
+            <p class="donation-modal-eyebrow">Keep the work moving</p>
+            <h2 class="donation-modal-title" id="donation-title">Support Kasual Labz</h2>
+          </div>
+          <button class="donation-dialog-close" id="donation-close" type="button" aria-label="Close donation dialog">×</button>
+        </div>
+        <p class="donation-modal-message" id="donation-message">Support independent development at Kasual Labz. Donations help fund our projects, infrastructure, and continued development. Every contribution is appreciated.</p>
+        <div class="donation-choice-list" id="donation-choices" role="group" aria-label="Choose a cryptocurrency"></div>
+        <section class="donation-wallet-panel" aria-label="Selected donation wallet">
+          <div class="donation-wallet-info">
+            <div class="donation-wallet-identity">
+              <span class="donation-wallet-logo donation-logo-btc"><img id="donation-wallet-logo" src="" alt="" width="36" height="36" hidden></span>
+              <div><h3 class="donation-wallet-name" id="donation-wallet-name"></h3><p class="donation-wallet-network" id="donation-wallet-network"></p></div>
+            </div>
+            <p class="donation-address-label">Donation address</p>
+            <div class="donation-address-row" id="donation-address-row" hidden>
+              <code class="donation-wallet-address" id="donation-wallet-address"></code>
+              <button class="donation-copy-button" id="donation-copy" type="button">Copy Address</button>
+            </div>
+            <p class="donation-address-missing" id="donation-address-missing" hidden></p>
+            <p class="donation-copy-status" id="donation-copy-status" role="status" aria-live="polite"></p>
+          </div>
+          <figure class="donation-qr-figure" id="donation-qr-figure" hidden>
+            <img class="donation-qr-image" id="donation-qr" src="" alt="" width="132" height="132">
+            <figcaption>Scan to read this donation address.</figcaption>
+          </figure>
+        </section>
+        <div class="donation-modal-footer"><p>No wallet connection or payment processing.</p><p>Confirm the network before sending.</p></div>
+        <details class="donation-mark-credits">
+          <summary>Network logo information</summary>
+          <p>Network marks identify donation options only and imply no affiliation or endorsement. The Bitcoin, Zcash, and Ethereum geometric artwork is marked public domain by its Wikimedia Commons sources: <a href="https://commons.wikimedia.org/wiki/File:Bitcoin.svg" target="_blank" rel="noopener noreferrer">Bitcoin</a>, <a href="https://commons.wikimedia.org/wiki/File:Zcash_logo_%282024%E2%80%93present%29.svg" target="_blank" rel="noopener noreferrer">Zcash</a>, and <a href="https://commons.wikimedia.org/wiki/File:Ethereum-icon-purple.svg" target="_blank" rel="noopener noreferrer">Ethereum</a>. Public-domain artwork status does not grant trademark rights. The Kaspa mark is by Kaspion under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> (<a href="https://commons.wikimedia.org/wiki/File:Kaspa-logo.svg" target="_blank" rel="noopener noreferrer">source</a>). The unmodified Solana mark is from <a href="https://github.com/simple-icons/simple-icons/blob/1bb2f6e6ea50f920de8d2f3d273ae48564a5eaee/icons/solana.svg" target="_blank" rel="noopener noreferrer">Simple Icons</a>, based on <a href="https://solana.com/branding" target="_blank" rel="noopener noreferrer">Solana’s brand assets</a>.</p>
+        </details>
+      </dialog>
     </footer>
   </body>
 </html>

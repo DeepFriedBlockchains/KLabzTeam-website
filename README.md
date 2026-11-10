@@ -8,10 +8,13 @@ The deployable static website is in `site/`:
 
 - `index.html` contains homepage content, SEO/social metadata, the Projects board, and the Kasquatch launch announcement toast.
 - `projects/kasquatch/index.html` is the dedicated Kasquatch token page, including concise tokenomics facts, a token-ID copy control, and the live-tracking dashboard.
-- `styles.css` contains the responsive visual system, toast, project cards, tokenomics and tracker cards, focus states, and reduced-motion behavior.
+- `styles.css` contains the responsive visual system, toast, project cards, donation dialog, tokenomics and tracker cards, focus states, and reduced-motion behavior.
 - `script.js` contains mobile navigation, the one-time-per-session launch toast, token-ID copy feedback, and footer year update.
+- `donation.js` is loaded only by the homepage and controls the accessible five-currency donation dialog, local wallet selection, copy feedback, and QR display. It makes no third-party requests and connects no wallets.
+- `donation-wallets.json` stores the five user-supplied public addresses (BTC, ETH, ZEC, KAS, SOL), corresponding networks, local logos and QR file paths. These addresses are intentionally public wallet destinations, not credentials.
 - `kasquatch-live.js` is loaded only on the Kasquatch page. It reads token-specific KCC-20/market data, verified chart candles, and a signed KAS/USD feed from the public Kascov API. It refreshes every 30 seconds, reports unavailable data instead of simulating it, handles retry responses, and adds no dependency or backend.
-- `assets/` contains supplied Kasual Labz and Kasquatch artwork. The transparent Kasquatch main logo is used as the featured token artwork. The dedicated page uses an optimized crop of the supplied forest poster as a quiet backdrop.
+- `assets/` contains supplied Kasual Labz and Kasquatch artwork plus local donation-network SVG logos and generated QR codes. The transparent Kasquatch main logo is used as the featured token artwork. The dedicated page uses an optimized crop of the supplied forest poster as a quiet backdrop.
+- `tools/generate-donation-qr.py` regenerates the local QR SVGs from `site/donation-wallets.json`; its pinned Python dependency is build-time only and is not loaded by the website.
 - `favicon.png`, `robots.txt`, `sitemap.xml`, and `manus-routes.json` support browser identity and discoverability.
 
 `plan.md` records the design and implementation approach. `TODO.md` tracks delivery outcomes. `app.config.ts` stores the durable project-logo URL required by the managed workspace.
@@ -26,9 +29,13 @@ python3 -m http.server 3000 --directory site
 
 Then open `http://localhost:3000` and `http://localhost:3000/projects/kasquatch/`. Stop the server with `Ctrl+C`.
 
+To regenerate donation QR files after an address change, update `site/donation-wallets.json` and run `python3 -m pip install -r tools/requirements-donation-qr.txt`, then `python3 tools/generate-donation-qr.py`. Use `python3 tools/generate-donation-qr.py --check` to verify the saved QR files match the configured addresses. A missing or placeholder wallet must have `configured: false` and no QR will be generated for it; do not add credentials or private keys.
+
 ## Editing the site
 
 Update page copy in the relevant HTML file; keep public-facing copy in HTML rather than in images. Update layout and colors in `site/styles.css`. Keep `prefers-reduced-motion` support when adding motion. Assets supplied for Kasual Labz and Kasquatch are stored in `site/assets/`; preserve their proportions, transparency, and visual treatment.
+
+The homepage-only donation modal is in `site/index.html` and `site/donation.js`. To change its static wallet data, edit `site/donation-wallets.json`, regenerate and verify the corresponding QR SVGs using the tool above, and preview the modal at phone and desktop sizes. Keep QR files local; do not add an external QR service, wallet connection, or payment processor. The Kaspa icon's attribution and CC BY-SA 4.0 license, along with the source notes for the other network marks, are shown in the modal's expandable logo-information note.
 
 The homepage announcement uses `sessionStorage` so it is shown at most once per browser session, whether it times out or is dismissed. Keep the route manifest synchronized with actual pages. After edits, check desktop and mobile layouts, internal navigation, the Kasseal token URL, the verified Kasquatch X profile, `mailto:contact@kasuallabz.xyz`, and the existing Kasual Labz X link. Tokenomics copy uses the approved fixed project facts; changing fees or supply requires source verification. The live dashboard keeps curve progress separate from spot price, uses verified Kascov candle and token data, and displays USD only when its signed KAS/USD feed passes freshness and signature checks. Missing metrics must remain “Data temporarily unavailable.” Keep price motion tied to actual source-value changes and test chart ranges, reduced motion, API failures, and mobile overflow.
 
