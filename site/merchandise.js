@@ -44,13 +44,16 @@
   const selectedDesign = requestForm.elements.design;
   const itemType = requestForm.elements.itemType;
   const formStatus = document.querySelector('#merch-request-status');
+  const selectionConfirmation = document.querySelector('#merch-selection-confirmation');
   gallery.querySelectorAll('[data-request]').forEach((button) => {
     button.addEventListener('click', () => {
       const card = button.closest('[data-category]');
       selectedDesign.value = card.dataset.design;
       itemType.value = card.dataset.itemType;
+      selectionConfirmation.textContent = `${card.dataset.design} selected. Complete the details below to prepare an availability inquiry; this does not place an order.`;
       formStatus.textContent = '';
       requestDialog.showModal();
+      selectedDesign.focus();
     });
   });
   requestDialog.addEventListener('click', (event) => {

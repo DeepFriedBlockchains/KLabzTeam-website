@@ -526,6 +526,8 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
 .merch-form-heading { padding-right: 40px; }
 .merch-form-heading h2 { margin: 5px 0 8px; font-size: clamp(1.9rem, 5vw, 2.6rem); }
 .merch-form-heading p:last-child { margin: 0; color: #aec0bc; font-size: .86rem; }
+.merch-selection-confirmation { margin: 16px 0 0; padding: 11px 13px; border-left: 3px solid var(--mint); color: var(--mint-bright); background: rgba(68, 240, 213, .075); font-size: .84rem; font-weight: 680; line-height: 1.5; }
+.merch-selection-confirmation:empty { display: none; }
 .merch-request-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; margin-top: 23px; }
 .merch-field { display: grid; gap: 6px; min-width: 0; }
 .merch-field-wide { grid-column: 1 / -1; }
