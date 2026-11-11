@@ -29,6 +29,12 @@
   let scrollToDonationTimer = 0;
   let scrollEndHandler = null;
 
+  const openDonationFromQuery = () => {
+    if (new URLSearchParams(window.location.search).get('donate') !== '1' || openButton.hidden || dialog.open) return;
+    dialog.showModal();
+  };
+  window.addEventListener('pageshow', openDonationFromQuery);
+
   const buildChoice = (wallet) => {
     const button = document.createElement('button');
     button.className = 'donation-choice';
@@ -204,6 +210,7 @@
       selectWallet(selectedWallet);
       openButton.hidden = false;
       if (menuOpenLink) menuOpenLink.hidden = false;
+      openDonationFromQuery();
     })
     .catch(() => {
       // Keep the footer button hidden when the local wallet configuration cannot be loaded.

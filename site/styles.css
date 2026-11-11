@@ -599,3 +599,22 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
 @media (prefers-reduced-motion: reduce) {
   .primary-nav .nav-kasquatch-link, .nav-toggle span { transition: none; }
 }
+
+
+/* Keep the two Kasquatch navigation actions uniform; Donate retains its separate pill style. */
+.primary-nav .nav-kasquatch-link {
+  box-sizing: border-box;
+  width: 160px;
+  min-height: 40px;
+  padding: 9px 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+@media (max-width: 820px) {
+  .primary-nav .nav-kasquatch-link {
+    width: min(100%, 250px);
+    max-width: 250px;
+    min-height: 44px;
+    padding: 10px 12px;
+  }
+}
