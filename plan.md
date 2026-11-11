@@ -40,13 +40,17 @@ For the homepage donation section, add a small “Support Kasual Labz” footer 
 
 Use semantic HTML, custom CSS, and vanilla JavaScript. No new website runtime dependency is needed. The global script handles accessible mobile navigation, the session-scoped toast, token-ID copy feedback, and current year. `donation.js` is loaded only on the homepage and controls the modal plus its primary-navigation scroll/open action; `donation-wallets.json` is its configurable static source of truth, also read by the offline QR generator. Five generated local QR SVG assets and five local brand-logo SVGs are stored under `site/assets/donations/`. The `qrcode==8.2` Python package is pinned only for this offline build task and is not loaded on the website. `kasquatch-live.js` remains loaded only on the dedicated Kasquatch page. CSS controls the existing layout, dashboard, donation modal, responsiveness, focus states, and reduced motion.
 
+The Kasquatch token page links to a dedicated made-to-order merchandise subpage at `/projects/kasquatch/merch/`. Its individually assigned product cards use optimized local WebP versions of the supplied mockups in `site/assets/merch/`; a non-product collection collage is shown separately. The category navigation includes All Merchandise plus T-Shirts, Hoodies & Sweatshirts, Hats & Headwear, and Accessories; product categories with no items remain hidden until populated. A page-only `merchandise.js` filters cards by category, opens native accessible image and request dialogs, and creates a prefilled `mailto:contact@kasuallabz.xyz` inquiry. The static site has no mail backend; status text says an email draft opened and the visitor must send it. No payment, inventory, pricing, purchase flow, or order confirmation is represented.
+
 ```text
 site/
 ├── index.html                         # Homepage, Projects board, announcement
 ├── donation.js                        # Homepage-only donation modal and copy controls
 ├── donation-wallets.json              # Public, configurable donation wallets and labels
 ├── projects/kasquatch/index.html      # Dedicated token page
+├── projects/kasquatch/merch/index.html # Dedicated made-to-order merchandise gallery
 ├── kasquatch-live.js                  # Token-page-only live KCC-20 market tracker
+├── merchandise.js                     # Merchandise filters, preview, request email draft
 ├── styles.css                         # Responsive site, card, toast and project styles
 ├── script.js                          # Mobile navigation, toast and footer year
 ├── manus-routes.json                  # Homepage and project-page routes
@@ -56,6 +60,7 @@ site/
     ├── obsidian-peaks.webp
     ├── kasquatch-main-logo.png         # Supplied transparent token logo
     ├── kasquatch-forest-backdrop.webp  # Optimized supplied forest artwork
+    ├── merch/                          # Optimized supplied merchandise mockups
     └── donations/                     # Five local network SVGs and five QR SVGs
 tools/
 ├── generate-donation-qr.py             # Offline static QR generator (development only)

@@ -8,11 +8,14 @@ The deployable static website is in `site/`:
 
 - `index.html` contains homepage content, SEO/social metadata, the Projects board, and the Kasquatch launch announcement toast.
 - `projects/kasquatch/index.html` is the dedicated Kasquatch token page, including concise tokenomics facts, a token-ID copy control, and the live-tracking dashboard.
+- `projects/kasquatch/merch/index.html` is the separate Kasquatch merchandise concept gallery, linked from the token page.
 - `styles.css` contains the responsive visual system, toast, project cards, donation dialog, tokenomics and tracker cards, focus states, and reduced-motion behavior.
 - `script.js` contains mobile navigation, the one-time-per-session launch toast, token-ID copy feedback, and footer year update.
 - `donation.js` is loaded only by the homepage and controls the accessible five-currency donation dialog, local wallet selection, copy feedback, and QR display. It makes no third-party requests and connects no wallets.
 - `donation-wallets.json` stores the five user-supplied public addresses (BTC, ETH, ZEC, KAS, SOL), corresponding networks, local logos and QR file paths. These addresses are intentionally public wallet destinations, not credentials.
 - `kasquatch-live.js` is loaded only on the Kasquatch page. It reads token-specific KCC-20/market data, verified chart candles, and a signed KAS/USD feed from the public Kascov API. It refreshes every 30 seconds, reports unavailable data instead of simulating it, handles retry responses, and adds no dependency or backend.
+- `merchandise.js` is loaded only on the Kasquatch page. It filters the supplied made-to-order concept gallery, opens larger image previews and a request form, then creates an email draft to `contact@kasuallabz.xyz`. There is no request backend; visitors must send the draft themselves, and the site does not confirm orders.
+- `assets/merch/` contains optimized local WebP copies of the supplied product mockups. The collection collage is displayed as a preview only, not as a requestable item.
 - `assets/` contains supplied Kasual Labz and Kasquatch artwork plus local donation-network SVG logos and generated QR codes. The transparent Kasquatch main logo is used as the featured token artwork. The dedicated page uses an optimized crop of the supplied forest poster as a quiet backdrop.
 - `tools/generate-donation-qr.py` regenerates the local QR SVGs from `site/donation-wallets.json`; its pinned Python dependency is build-time only and is not loaded by the website.
 - `favicon.png`, `robots.txt`, `sitemap.xml`, and `manus-routes.json` support browser identity and discoverability.
@@ -27,13 +30,15 @@ No package installation is required. From the repository root, run:
 python3 -m http.server 3000 --directory site
 ```
 
-Then open `http://localhost:3000` and `http://localhost:3000/projects/kasquatch/`. Stop the server with `Ctrl+C`.
+Then open `http://localhost:3000`, `http://localhost:3000/projects/kasquatch/`, and `http://localhost:3000/projects/kasquatch/merch/`. Stop the server with `Ctrl+C`.
 
 To regenerate donation QR files after an address change, update `site/donation-wallets.json` and run `python3 -m pip install -r tools/requirements-donation-qr.txt`, then `python3 tools/generate-donation-qr.py`. Use `python3 tools/generate-donation-qr.py --check` to verify the saved QR files match the configured addresses. A missing or placeholder wallet must have `configured: false` and no QR will be generated for it; do not add credentials or private keys.
 
 ## Editing the site
 
 Update page copy in the relevant HTML file; keep public-facing copy in HTML rather than in images. Update layout and colors in `site/styles.css`. Keep `prefers-reduced-motion` support when adding motion. Assets supplied for Kasual Labz and Kasquatch are stored in `site/assets/`; preserve their proportions, transparency, and visual treatment.
+
+The made-to-order gallery is in `site/projects/kasquatch/merch/index.html`; the token page links to it. Each requestable `.merch-card` has a `data-category`, `data-design`, `data-item-type`, and local optimized image. Use the existing category IDs in `site/merchandise.js`; empty categories are hidden automatically. Add future product cards with an existing category value and they will appear under that filter. The separate concept collage is not a product request. The form uses a `mailto:` email draft, not a backend. Do not describe opening the draft as a submitted or confirmed order.
 
 The homepage-only donation modal is in `site/index.html` and `site/donation.js`. Its top-nav Donate entry closes the mobile menu, scrolls to the footer, and opens the same dialog. To change its static wallet data, edit `site/donation-wallets.json`, regenerate and verify the corresponding QR SVGs using the tool above, and preview the modal at phone and desktop sizes. Keep QR files local; do not add an external QR service, wallet connection, or payment processor. The Kaspa icon's attribution and CC BY-SA 4.0 license, along with the source notes for the other network marks, are shown in the modal's expandable logo-information note.
 
