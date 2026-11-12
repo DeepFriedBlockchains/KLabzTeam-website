@@ -4,18 +4,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#06110f">
     <title>Page not found | Kasual Labz</title>
-    <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/styles.css?v=20261112-actions-v1">
+    <script src="/script.js?v=20261112-actions-v1" defer></script>
   </head>
   <body>
-    <main class="contact section-frame" style="min-height:100vh;display:grid;place-items:center">
+    <header class="site-header">
+      <div class="header-shell">
+        <a class="brand" href="/" aria-label="Kasual Labz home"><img src="/assets/kasual-labz-wordmark.webp" width="2048" height="682" alt="Kasual Labz"></a>
+        <button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span></button>
+        <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+          <a href="/#about">About</a><a href="/#projects">Projects</a><a class="nav-kasquatch-link" href="/projects/kasquatch/">Kasquatch Token</a><a class="nav-kasquatch-link" href="/projects/kasquatch/merch/">Kasquatch Merch</a><a href="/#contact">Contact</a><a class="nav-donation-link" href="/?donate=1#donation-open" aria-haspopup="dialog">Donate</a>
+        </nav>
+      </div>
+    </header>
+    <main class="contact section-frame" style="min-height:calc(100vh - 180px);display:grid;place-items:center">
       <div class="section-shell" style="text-align:center">
         <p class="kicker">404 / signal unavailable</p>
         <h1 style="font-size:clamp(3rem,8vw,7rem)">This page is<br><em>off the map.</em></h1>
         <p class="hero-lede" style="margin-inline:auto">The address may have moved, or it may not exist.</p>
-        <p style="margin-top:2rem"><a class="button button-primary" href="./">Return home <span aria-hidden="true">→</span></a></p>
+        <p style="margin-top:2rem"><a class="button button-primary" href="/">Return home <span aria-hidden="true">→</span></a></p>
       </div>
     </main>
+    <footer class="site-footer">
+      <div class="footer-shell donation-footer-shell">
+        <a class="footer-brand" href="/">Kasual Labz</a>
+        <p>A development team under NF Projects</p>
+        <p>© <span id="current-year">2026</span></p>
+        <a class="donation-trigger footer-donate-link" href="/?donate=1#donation-open" aria-haspopup="dialog">Donate</a>
+      </div>
+    </footer>
   </body>
 </html>

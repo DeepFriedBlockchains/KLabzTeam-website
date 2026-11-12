@@ -26,11 +26,17 @@
   const isLocalDonationAsset = (value) => typeof value === 'string' && /^\/assets\/donations\/[a-z0-9-]+\.svg$/i.test(value);
   let wallets = [];
   let selectedWallet = null;
+  let walletConfigurationReady = false;
+  let pendingDonationOpen = false;
   let scrollToDonationTimer = 0;
   let scrollEndHandler = null;
 
   const openDonationFromQuery = () => {
-    if (new URLSearchParams(window.location.search).get('donate') !== '1' || openButton.hidden || dialog.open) return;
+    if (new URLSearchParams(window.location.search).get('donate') !== '1' || dialog.open) return;
+    if (!walletConfigurationReady) {
+      pendingDonationOpen = true;
+      return;
+    }
     dialog.showModal();
   };
   window.addEventListener('pageshow', openDonationFromQuery);
@@ -147,6 +153,10 @@
   });
 
   openButton.addEventListener('click', () => {
+    if (!walletConfigurationReady) {
+      pendingDonationOpen = true;
+      return;
+    }
     if (!dialog.open) dialog.showModal();
   });
   if (closeButton) closeButton.addEventListener('click', () => dialog.close());
@@ -208,11 +218,17 @@
       wallets.forEach((wallet) => choiceButtons.set(wallet, buildChoice(wallet)));
       selectedWallet = wallets.find(isConfiguredAddress) || wallets[0];
       selectWallet(selectedWallet);
+      walletConfigurationReady = true;
       openButton.hidden = false;
       if (menuOpenLink) menuOpenLink.hidden = false;
-      openDonationFromQuery();
+      if (pendingDonationOpen) {
+        pendingDonationOpen = false;
+        if (!dialog.open) dialog.showModal();
+      } else {
+        openDonationFromQuery();
+      }
     })
     .catch(() => {
-      // Keep the footer button hidden when the local wallet configuration cannot be loaded.
+      // Keep Donate links visible; the dialog only opens after wallet configuration is available.
     });
 })();

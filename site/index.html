@@ -22,9 +22,9 @@
     <meta name="twitter:description" content="Experimental ideas, practical builds from the NF Projects development team.">
     <meta name="twitter:image" content="https://kasuallabz.xyz/assets/kasual-k-mark.png">
     <meta name="twitter:image:alt" content="Kasual Labz teal K emblem">
-    <link rel="stylesheet" href="styles.css?v=20261111-menu-v5">
+    <link rel="stylesheet" href="styles.css?v=20261112-actions-v1">
     <script src="script.js" defer></script>
-    <script src="donation.js?v=20261111-donate-nav" defer></script>
+    <script src="donation.js?v=20261112-actions-v1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -49,7 +49,7 @@
           <a class="nav-kasquatch-link" href="/projects/kasquatch/">Kasquatch Token</a>
           <a class="nav-kasquatch-link" href="/projects/kasquatch/merch/">Kasquatch Merch</a>
           <a href="#contact">Contact</a>
-          <a class="nav-donation-link" id="donation-menu-open" href="#donation-open" aria-haspopup="dialog" hidden>Donate</a>
+          <a class="nav-donation-link" id="donation-menu-open" href="#donation-open" aria-haspopup="dialog">Donate</a>
         </nav>
       </div>
     </header>
@@ -137,7 +137,7 @@
                 <p class="project-overline">Kasual Labz / token project</p>
                 <h3>KASQUATCH <span>$KSQT</span></h3>
                 <p>The legendary KCC-20 meme token has officially launched on Kaspa through Kasseal.</p>
-                <a class="project-link" href="/projects/kasquatch/">Explore Kasquatch <span aria-hidden="true">↗</span></a>
+                <a class="button button-secondary project-link" href="/projects/kasquatch/">Explore Kasquatch <span aria-hidden="true">↗</span></a>
               </div>
             </article>
             <article class="project-card project-card-upcoming">
@@ -216,7 +216,7 @@
         <a class="footer-brand" href="#top">Kasual Labz</a>
         <p>A development team under NF Projects</p>
         <p>© <span id="current-year">2026</span></p>
-        <button class="donation-trigger" id="donation-open" type="button" hidden>Support Kasual Labz</button>
+        <button class="donation-trigger" id="donation-open" type="button" aria-haspopup="dialog" aria-controls="donation-dialog">Donate</button>
       </div>
       <dialog class="donation-dialog" id="donation-dialog" aria-labelledby="donation-title" aria-describedby="donation-message">
         <div class="donation-modal-header">

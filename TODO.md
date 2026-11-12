@@ -47,3 +47,6 @@
 
 
 - [x] **Center and widen the Donate pill in the mobile dropdown.** Keep its mint pill appearance, center it beneath the five outlined tabs, and make it half the tabs’ width. The 390 px open-menu preview shows the pill centered at 50% width. The live homepage, token page, and merchandise page return HTTP 200 and reference `menu-v5`; the public stylesheet contains `justify-self: center; width: 50%`. Published at commit `b14f587`; GitHub Pages run `43230464593` succeeded.
+
+- [ ] **Standardize website action-button styling.** Use one consistent button geometry, typography, spacing, and interaction treatment across navigation tabs and page actions on the homepage, Kasquatch token page, and merchandise page. Filled/outline states may differ by purpose. Preserve the top Donate pill and match the footer Donate pill to it.
+- [ ] **Keep Donate available on every page.** Show Donate in the top navigation and in the footer on the homepage, Kasquatch token page, merchandise page, and custom 404 page. On the homepage the buttons open the existing accessible donation dialog. From other pages the buttons return to the homepage and open the same dialog. Keep both links visible even if wallet configuration is delayed or unavailable; do not change wallet addresses or email/DNS/hosting settings.
