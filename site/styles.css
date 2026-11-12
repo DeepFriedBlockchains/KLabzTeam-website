@@ -712,9 +712,9 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
   color: var(--ink-deep);
   background: var(--mint);
 }
-.merch-request-button,
-.donation-copy-button {
-  min-height: 48px;
+  .merch-request-button,
+  .donation-copy-button {
+    min-height: 48px;
   border: 1px solid var(--line-strong);
   border-radius: 4px;
   color: var(--mint-bright);
@@ -743,6 +743,17 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
   font-weight: 850;
   letter-spacing: .12em;
   line-height: 1.2;
+}
+.site-footer .donation-trigger {
+  border-color: var(--mint);
+  color: var(--ink-deep);
+  background: var(--mint);
+}
+.site-footer .donation-trigger:hover,
+.site-footer .donation-trigger:focus-visible {
+  border-color: var(--mint-bright);
+  color: var(--ink-deep);
+  background: var(--mint-bright);
 }
 .donation-footer-shell {
   justify-content: space-between;
