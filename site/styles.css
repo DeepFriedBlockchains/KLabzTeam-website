@@ -583,7 +583,7 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
   .primary-nav a { padding: 13px 0; }
   .primary-nav a:not(.nav-donation-link) { display: flex; justify-self: stretch; width: 100%; min-height: 48px; margin: 5px 0; padding: 12px 14px; align-items: center; justify-content: center; border: 1px solid var(--line-strong); border-radius: 4px; color: var(--mint-bright); background: rgba(68, 240, 213, .07); font-size: .64rem; font-weight: 850; letter-spacing: .055em; line-height: 1.2; text-align: center; text-transform: uppercase; }
   .primary-nav a:not(.nav-donation-link):hover, .primary-nav a:not(.nav-donation-link):focus-visible { border-color: var(--mint-bright); color: var(--ink-deep); background: var(--mint-bright); }
-  .primary-nav .nav-donation-link { justify-self: start; width: fit-content; margin-top: 8px; padding: 10px 14px; }
+  .primary-nav .nav-donation-link { justify-self: center; width: 50%; margin: 8px 0 0; padding: 10px 14px; }
   .primary-nav a::after { display: none; }
 }
 
