@@ -835,7 +835,7 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
 .detail-hero-content { width: min(100%, 990px); margin: 10px auto 0; text-align: center; }
 .project-hero-logo { display: block; width: clamp(178px, 19vw, 250px); height: auto; margin: 0 auto 3px; filter: drop-shadow(0 0 16px rgba(160, 32, 240, .48)); }
 .project-hero-logo { mix-blend-mode: screen; }
-.kaspa-hero-emblem { width: clamp(180px, 19vw, 258px); aspect-ratio: 1; margin: 0 auto 16px; border-radius: 50%; background: url('/assets/kaspa-fork-emblem.webp') center 47% / cover no-repeat; box-shadow: 0 0 42px rgba(68, 240, 213, .18); }
+.kaspa-hero-emblem { display: block; width: clamp(180px, 19vw, 258px); height: auto; margin: 0 auto 16px; object-fit: contain; filter: drop-shadow(0 0 23px rgba(68, 240, 213, .28)); }
 .detail-hero .project-overline { margin-top: 8px; color: var(--mint-bright); font-size: .76rem; letter-spacing: .22em; }
 .detail-hero h1 { max-width: none; margin: 14px 0 15px; color: #f4f7f6; font-size: clamp(3.2rem, 8vw, 6.7rem); letter-spacing: -.065em; line-height: .94; text-shadow: 0 4px 30px rgba(0, 0, 0, .52); }
 .detail-hero--kaspa h1 em { color: var(--mint); font-family: var(--sans); font-size: 1em; font-style: normal; font-weight: 800; letter-spacing: inherit; }
