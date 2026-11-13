@@ -977,7 +977,7 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
 }
 .listing-card-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 .listing-card {
@@ -1013,6 +1013,7 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
 }
 .listing-logo-frame--blockspot { background: #f3f7fa; }
 .listing-logo-frame--coinranking { background: #08275e; }
+.listing-logo-frame--coinvote { background: #111b17; }
 .listing-logo-frame img {
   display: block;
   width: min(100%, 320px);
