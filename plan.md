@@ -44,6 +44,15 @@ The shared responsive navigation links directly to the Kasquatch token page and 
 
 The shared responsive navigation also offers “Kasquatch Token” and “Kasquatch Merch” destination links above Contact. The dedicated token hero groups its Kasseal, Tokenomics, and merchandise actions into a non-overlapping mobile layout. The merchandise gallery contains individual designs including the supplied Kaspa Creature front-and-back hoodie and two new shirt concepts; remove the separate collection collage card so products remain in the common category/filter layout.
 
+## Two requested project pages
+
+Add static pages at `/projects/xtm-miner/` and `/projects/kaspa-fork/`, reusing the existing global header, official Kasual Labz wordmark, navigation, footer, button system, and responsive CSS. Update the home Projects board to link to both pages and keep Kasquatch unchanged. Use the supplied concept screenshots as visual references rather than page backgrounds; use the supplied Tari logo and teal Kaspa Fork emblem as optimized local artwork. Never expose the private name “KASCADE” in public copy, metadata, source comments, URLs, or asset filenames.
+Add static pages at `/projects/xtm-miner/` and `/projects/kaspa-fork/`, reusing the existing global header, official Kasual Labz wordmark, navigation, footer, button system, and responsive CSS. Update the home Projects board to link to both pages and keep Kasquatch unchanged. Use the supplied concept screenshots as visual references rather than page backgrounds; use the supplied Tari logo and teal Kaspa Fork emblem as optimized local artwork. Never expose the private internal project name in public copy, metadata, source comments, URLs, or asset filenames.
+
+The XTM-MINER page uses the supplied delayed/Ootle update, target release of before December 1, 2026 (subject to successful compatibility testing, not guaranteed), exact project details, and functional update/Tari links. Include an “Application Preview” section without fabricated screenshots; until actual app screenshots arrive, state that none have been supplied. First complete both page layouts and homepage project links. Then, as the final implementation step before verification, animate only the Tari logo via a smooth infinite four-second CSS pulse between 100% and 103% scale and brightness 1.0–1.2 with its purple glow. Under reduced motion, remove the animation. No JavaScript or animation library.
+
+The Kaspa Fork page stays a short public teaser: “Under Construction,” the approved description, “More information will be announced soon,” the approved project details, and functional public update/follow destinations only. Do not disclose any private project identity, technical details, token economics, private repositories, or internal timelines. Keep both pages as a local preview for owner review; do not deploy until the owner approves the rendered implementation. No XTM application screenshots were included in the supplied prompt package.
+
 ```text
 site/
 ├── index.html                         # Homepage, Projects board, announcement
@@ -52,6 +61,8 @@ site/
 ├── donation-wallets.json              # Public, configurable donation wallets and labels
 ├── projects/kasquatch/index.html      # Dedicated token page
 ├── projects/kasquatch/merch/index.html # Dedicated made-to-order merchandise gallery
+├── projects/xtm-miner/index.html      # XTM-MINER page with the CSS-only reduced-motion-aware Tari logo pulse
+├── projects/kaspa-fork/index.html     # Public Kaspa Fork teaser page
 ├── kasquatch-live.js                  # Token-page-only live KCC-20 market tracker
 ├── merchandise.js                     # Merchandise filters, preview, request email draft
 ├── styles.css                         # Responsive site, card, toast and project styles
@@ -63,6 +74,8 @@ site/
     ├── obsidian-peaks.webp
     ├── kasquatch-main-logo.png         # Supplied transparent token logo
     ├── kasquatch-forest-backdrop.webp  # Optimized supplied forest artwork
+    ├── xtm-tari-emblem.webp            # Supplied Tari emblem; optimized with transparency preserved
+    ├── kaspa-fork-emblem.webp           # Supplied teal project artwork; public-safe filename
     ├── merch/                          # Optimized supplied merchandise mockups
     └── donations/                     # Five local network SVGs and five QR SVGs
 tools/
@@ -70,4 +83,4 @@ tools/
 └── requirements-donation-qr.txt        # Pinned build-time-only QR dependency
 ```
 
-The existing GitHub Pages workflow publishes the static `site/` folder from `main`. Keep the donation changes isolated, review them in a feature-branch preview, and only publish after the requested behavior is verified.
+The existing GitHub Pages workflow publishes the static `site/` folder from `main`. Keep this two-page change on a non-production working branch/preview; do not push to `main` or deploy it until the owner has reviewed and approved the final pages.

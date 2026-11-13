@@ -10,14 +10,15 @@ The deployable static website is in `site/`:
 - `404.html` provides a custom not-found page with the shared responsive navigation and both top and footer Donate links.
 - `projects/kasquatch/index.html` is the dedicated Kasquatch token page, including concise tokenomics facts, a token-ID copy control, and the live-tracking dashboard.
 - `projects/kasquatch/merch/index.html` is the separate Kasquatch merchandise concept gallery, linked from the token page.
-- `styles.css` contains the responsive visual system, toast, project cards, donation dialog, tokenomics and tracker cards, focus states, and reduced-motion behavior.
+- `projects/xtm-miner/index.html` and `projects/kaspa-fork/index.html` are the concept-matched project detail pages; XTM's supplied Tari emblem has a CSS-only reduced-motion-aware pulse.
+- `styles.css` contains the responsive visual system, toast, project cards and detail-page layouts, donation dialog, tokenomics and tracker cards, focus states, and reduced-motion behavior.
 - `script.js` contains mobile navigation, the one-time-per-session launch toast, token-ID copy feedback, and footer year update.
 - `donation.js` is loaded only by the homepage and controls the accessible five-currency donation dialog, local wallet selection, copy feedback, and QR display. It makes no third-party requests and connects no wallets.
 - `donation-wallets.json` stores the five user-supplied public addresses (BTC, ETH, ZEC, KAS, SOL), corresponding networks, local logos and QR file paths. These addresses are intentionally public wallet destinations, not credentials.
 - `kasquatch-live.js` is loaded only on the Kasquatch page. It reads token-specific KCC-20/market data, verified chart candles, and a signed KAS/USD feed from the public Kascov API. It refreshes every 30 seconds, reports unavailable data instead of simulating it, handles retry responses, and adds no dependency or backend.
 - `merchandise.js` is loaded only on the merchandise page. It filters the supplied made-to-order concept gallery, opens larger image previews and a request form, then creates an email draft to `contact@kasuallabz.xyz`. There is no request backend; visitors must send the draft themselves, and the site does not confirm orders.
 - `assets/merch/` contains optimized local WebP copies of the supplied individual product mockups; multi-item collage art is not shown as a product.
-- `assets/` contains supplied Kasual Labz and Kasquatch artwork plus local donation-network SVG logos and generated QR codes. The transparent Kasquatch main logo is used as the featured token artwork. The dedicated page uses an optimized crop of the supplied forest poster as a quiet backdrop.
+- `assets/` contains supplied Kasual Labz, Kasquatch, and project artwork plus local donation-network SVG logos and generated QR codes. The transparent Kasquatch main logo is used as the featured token artwork. The XTM page uses the supplied Tari artwork, and the Kaspa Fork page uses the supplied teal emblem under a public-safe filename.
 - `tools/generate-donation-qr.py` regenerates the local QR SVGs from `site/donation-wallets.json`; its pinned Python dependency is build-time only and is not loaded by the website.
 - `favicon.png`, `robots.txt`, `sitemap.xml`, and `manus-routes.json` support browser identity and discoverability.
 
@@ -31,7 +32,7 @@ No package installation is required. From the repository root, run:
 python3 -m http.server 3000 --directory site
 ```
 
-Then open `http://localhost:3000`, `http://localhost:3000/projects/kasquatch/`, `http://localhost:3000/projects/kasquatch/merch/`, and `http://localhost:3000/404.html`. Stop the server with `Ctrl+C`.
+Then open `http://localhost:3000`, `http://localhost:3000/projects/kasquatch/`, `http://localhost:3000/projects/kasquatch/merch/`, `http://localhost:3000/projects/xtm-miner/`, `http://localhost:3000/projects/kaspa-fork/`, and `http://localhost:3000/404.html`. Stop the server with `Ctrl+C`.
 
 To regenerate donation QR files after an address change, update `site/donation-wallets.json` and run `python3 -m pip install -r tools/requirements-donation-qr.txt`, then `python3 tools/generate-donation-qr.py`. Use `python3 tools/generate-donation-qr.py --check` to verify the saved QR files match the configured addresses. A missing or placeholder wallet must have `configured: false` and no QR will be generated for it; do not add credentials or private keys.
 
@@ -47,7 +48,7 @@ The homepage announcement uses `sessionStorage` so it is shown at most once per 
 
 ## GitHub Pages deployment
 
-`.github/workflows/deploy-pages.yml` publishes the committed `site/` directory whenever `main` changes. The approved Kasquatch update was fast-forwarded to `main` at commit `effc1bc`; GitHub Pages workflow run #4 succeeded. The primary domain and Kasquatch route are live over HTTPS, and `www.kasuallabz.xyz` redirects to the primary domain. Future production changes still require owner approval and should be reviewed on a feature branch first.
+`.github/workflows/deploy-pages.yml` publishes the committed `site/` directory whenever `main` changes. The approved Kasquatch update was fast-forwarded to `main` at commit `effc1bc`; GitHub Pages workflow run #4 succeeded. The primary domain and Kasquatch route are live over HTTPS, and `www.kasuallabz.xyz` redirects to the primary domain. The XTM-MINER and Kaspa Fork pages were reviewed on `review/xtm-miner-kaspa-fork-pages` and approved by the owner for this production promotion. Future production changes still require owner approval and should be reviewed on a feature branch first.
 
 The workflow uses GitHub’s official Pages actions and uploads only the static website, with no build-time secrets or credentials. GitHub Pages must be enabled once for the repository with the **GitHub Actions** publishing source; each later push to `main` deploys automatically.
 

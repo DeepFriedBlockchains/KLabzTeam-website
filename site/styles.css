@@ -819,3 +819,131 @@ h1 em, h2 em { color: var(--mint); font-family: var(--serif); font-weight: 400; 
 @media (max-width: 560px) {
   .donation-footer-shell { justify-content: center; }
 }
+
+
+/* XTM-MINER and Kaspa Fork concept-matched project detail pages */
+.project-detail-main { position: relative; }
+.detail-hero { position: relative; min-height: 735px; overflow: hidden; isolation: isolate; display: grid; align-items: center; border-bottom: 1px solid var(--line); }
+.detail-hero-art { position: absolute; z-index: -2; inset: 0; }
+.detail-hero-art--xtm { background-image: linear-gradient(180deg, rgba(3, 10, 9, .16), rgba(3, 10, 9, .38) 42%, rgba(3, 10, 9, .94) 100%), linear-gradient(90deg, rgba(3, 10, 9, .35), transparent 50%, rgba(3, 10, 9, .28)), url('/assets/kasquatch-forest-backdrop.webp'); background-position: center; background-size: cover; }
+.detail-hero-art--kaspa { background-image: linear-gradient(180deg, rgba(3, 10, 9, .16), rgba(3, 10, 9, .38) 42%, rgba(3, 10, 9, .94) 100%), linear-gradient(90deg, rgba(3, 10, 9, .35), transparent 50%, rgba(3, 10, 9, .28)), url('/assets/kasquatch-forest-backdrop.webp'); background-position: center; background-size: cover; }
+.detail-hero-shell { width: var(--content); margin: 0 auto; padding: 24px 0 50px; }
+.detail-back-link { display: inline-flex; align-items: center; gap: 12px; min-height: 42px; color: #e3f2ee; font-size: .72rem; font-weight: 850; letter-spacing: .17em; text-transform: uppercase; }
+.detail-back-link span { color: var(--mint); font-size: 1.4rem; line-height: 1; transition: transform 160ms ease; }
+.detail-back-link:hover { color: var(--mint-bright); }
+.detail-back-link:hover span { transform: translateX(-4px); }
+.detail-hero-content { width: min(100%, 990px); margin: 10px auto 0; text-align: center; }
+.project-hero-logo { display: block; width: clamp(178px, 19vw, 250px); height: auto; margin: 0 auto 3px; filter: drop-shadow(0 0 16px rgba(160, 32, 240, .48)); }
+.project-hero-logo { mix-blend-mode: screen; }
+.kaspa-hero-emblem { width: clamp(180px, 19vw, 258px); aspect-ratio: 1; margin: 0 auto 16px; border-radius: 50%; background: url('/assets/kaspa-fork-emblem.webp') center 47% / cover no-repeat; box-shadow: 0 0 42px rgba(68, 240, 213, .18); }
+.detail-hero .project-overline { margin-top: 8px; color: var(--mint-bright); font-size: .76rem; letter-spacing: .22em; }
+.detail-hero h1 { max-width: none; margin: 14px 0 15px; color: #f4f7f6; font-size: clamp(3.2rem, 8vw, 6.7rem); letter-spacing: -.065em; line-height: .94; text-shadow: 0 4px 30px rgba(0, 0, 0, .52); }
+.detail-hero--kaspa h1 em { color: var(--mint); font-family: var(--sans); font-size: 1em; font-style: normal; font-weight: 800; letter-spacing: inherit; }
+.detail-status-badge { display: inline-flex; align-items: center; justify-content: center; gap: 12px; max-width: 100%; min-height: 43px; margin: 0 auto; padding: 8px 18px; border: 1px solid var(--mint); border-radius: 999px; color: var(--mint-bright); background: rgba(2, 13, 12, .78); font-size: clamp(.66rem, 1.4vw, .93rem); font-weight: 850; letter-spacing: .15em; line-height: 1.3; text-align: center; text-transform: uppercase; }
+.detail-status-badge span { color: var(--mint); font-size: 1.15rem; }
+.detail-hero-lede { max-width: 820px; margin: 20px auto 0; color: #eff5f3; font-size: clamp(1rem, 1.6vw, 1.18rem); line-height: 1.6; text-shadow: 0 2px 15px rgba(0, 0, 0, .55); }
+.release-panel { width: min(100%, 580px); margin: 19px auto 0; display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 15px; padding: 13px 18px; border: 1px solid var(--mint); border-radius: 12px; color: var(--silver); background: rgba(2, 14, 13, .82); text-align: left; }
+.release-icon { display: grid; min-height: 47px; place-items: center; border-right: 1px solid var(--line-strong); color: var(--mint); font-size: 1.7rem; }
+.release-panel > div { display: grid; gap: 2px; }
+.release-label { color: var(--mint); font-size: .69rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+.release-panel strong { font-size: clamp(1rem, 1.8vw, 1.25rem); letter-spacing: -.02em; }
+.release-caveat { margin-top: 2px; color: #c1d0cc; font-size: .76rem; line-height: 1.4; }
+.detail-hero-actions { width: min(100%, 760px); margin: 20px auto 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.detail-hero-actions .button { width: 100%; }
+.detail-hero--kaspa { min-height: 735px; }
+.detail-hero--kaspa .detail-hero-content { width: min(100%, 920px); margin-top: 38px; }
+.detail-hero--kaspa .project-overline { margin-top: 0; }
+.detail-hero--kaspa h1 { margin-top: 18px; }
+.detail-hero--kaspa .detail-status-badge { padding-right: 24px; padding-left: 24px; }
+.detail-hero--kaspa .detail-hero-lede { max-width: 850px; margin-top: 18px; font-size: clamp(1.04rem, 1.65vw, 1.27rem); }
+.detail-soon-note { width: fit-content; margin: 14px auto 0; padding: 0 0 0 13px; border-left: 4px solid var(--mint); color: #e1e9e6; font-family: var(--serif); font-size: clamp(1rem, 1.7vw, 1.3rem); font-style: italic; }
+.detail-hero--kaspa .detail-hero-actions { margin-top: 23px; }
+.project-information { padding: clamp(76px, 9vw, 122px) 0; background: rgba(3, 12, 11, .72); }
+.project-information-layout { display: grid; grid-template-columns: minmax(250px, .62fr) minmax(0, 1.38fr); gap: clamp(35px, 6vw, 76px); align-items: start; }
+.project-section-heading { padding: 8px 0; }
+.project-section-heading .kicker { margin-bottom: 14px; }
+.project-section-heading h2 { max-width: 420px; color: #edf4f2; font-size: clamp(2.3rem, 4.4vw, 4.1rem); }
+.project-section-heading h2 em { color: var(--mint); }
+.project-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; padding: 0; border-top: 1px solid rgba(212, 232, 226, .55); }
+.project-facts > div { min-width: 0; padding: 14px 12px 15px 0; border-bottom: 1px solid rgba(212, 232, 226, .3); }
+.project-facts dt { margin: 0 0 4px; color: #b3c3bf; font-size: .66rem; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+.project-facts dd { margin: 0; color: #f0f4f3; font-size: clamp(.95rem, 1.4vw, 1.1rem); font-weight: 650; line-height: 1.35; }
+.project-update-section { padding: clamp(72px, 10vw, 132px) 0; background: linear-gradient(135deg, rgba(7, 26, 23, .97), rgba(3, 10, 9, .97)); }
+.project-update-layout { display: grid; grid-template-columns: minmax(250px, .62fr) minmax(0, 1.38fr); gap: clamp(35px, 6vw, 76px); align-items: start; }
+.project-update-layout .project-section-heading h2 { font-size: clamp(2rem, 3.2vw, 3rem); overflow-wrap: normal; }
+.project-update-copy { max-width: 760px; color: #c1d2ce; font-size: 1.02rem; line-height: 1.75; }
+.project-update-copy p:first-child { margin-top: 0; }
+.project-update-copy p:last-of-type { margin-bottom: 0; }
+.project-update-copy .button { margin-top: 21px; }
+.project-update-section--kaspa { padding-top: clamp(62px, 8vw, 98px); padding-bottom: clamp(68px, 9vw, 112px); }
+.application-preview { padding: clamp(70px, 9vw, 116px) 0; background: rgba(4, 16, 14, .8); }
+.application-preview-shell { display: grid; grid-template-columns: minmax(250px, .62fr) minmax(0, 1.38fr); gap: clamp(35px, 6vw, 76px); align-items: start; }
+.preview-note { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; align-items: start; padding: 22px; border: 1px solid var(--line-strong); background: linear-gradient(135deg, rgba(9, 39, 34, .75), rgba(4, 14, 13, .92)); }
+.preview-note-mark { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--line-strong); color: var(--mint); font-size: 1.25rem; }
+.preview-note p { margin: 0; color: #c0d0cc; font-size: .96rem; line-height: 1.65; }
+@media (max-width: 820px) {
+  .detail-hero { min-height: 700px; }
+  .detail-hero-shell { padding-top: 18px; }
+  .detail-hero-content { margin-top: 12px; }
+  .detail-hero--kaspa { min-height: 690px; }
+  .project-information-layout, .project-update-layout, .application-preview-shell { grid-template-columns: 1fr; gap: 28px; }
+  .project-section-heading h2 { max-width: 700px; }
+}
+@media (max-width: 620px) {
+  .detail-hero { min-height: auto; }
+  .detail-hero-art--xtm { background-position: center; background-size: auto 100%; }
+  .detail-hero-art--kaspa { background-position: center; background-size: auto 100%; }
+  .detail-hero-shell { padding-top: 12px; padding-bottom: 48px; }
+  .detail-back-link { min-height: 39px; font-size: .62rem; }
+  .detail-hero-content { margin-top: 2px; }
+  .project-hero-logo { width: min(58vw, 210px); margin-bottom: 0; }
+  .detail-hero .project-overline { font-size: .64rem; letter-spacing: .17em; }
+  .detail-hero h1 { margin-top: 11px; font-size: clamp(2.7rem, 13vw, 4.4rem); }
+  .detail-status-badge { gap: 8px; min-height: 40px; padding: 8px 11px; font-size: .64rem; letter-spacing: .1em; }
+  .detail-hero-lede { margin-top: 16px; font-size: .96rem; line-height: 1.6; }
+  .release-panel { grid-template-columns: 48px minmax(0, 1fr); gap: 11px; margin-top: 16px; padding: 11px 12px; }
+  .release-icon { min-height: 50px; }
+  .release-label { font-size: .61rem; }
+  .release-panel strong { font-size: .99rem; }
+  .release-caveat { font-size: .69rem; }
+  .detail-hero-actions { grid-template-columns: 1fr; gap: 10px; margin-top: 18px; }
+  .detail-hero-actions .button { min-height: 48px; }
+  .detail-hero--kaspa .detail-hero-content { margin-top: 40px; }
+  .kaspa-hero-emblem { width: min(58vw, 210px); margin-bottom: 14px; }
+  .detail-hero--kaspa h1 { font-size: clamp(2.7rem, 12.5vw, 4.25rem); }
+  .detail-hero--kaspa .detail-hero-lede { font-size: .99rem; }
+  .detail-soon-note { font-size: 1rem; }
+  .project-information, .project-update-section, .application-preview { padding: 66px 0; }
+  .project-section-heading h2 { font-size: clamp(2.35rem, 10vw, 3.25rem); }
+  .project-facts { grid-template-columns: 1fr; }
+  .project-facts > div { padding: 13px 0; }
+  .project-update-copy { font-size: .96rem; }
+  .preview-note { grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 16px; }
+  .preview-note-mark { width: 36px; height: 36px; }
+}
+
+
+/* Subtle, logo-only Tari glow; reduced motion is handled below. */
+.xtm-logo {
+  animation: xtmPulse 4s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform, filter;
+}
+
+@keyframes xtmPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1) drop-shadow(0 0 12px #a020f0);
+  }
+  50% {
+    transform: scale(1.03);
+    filter: brightness(1.2) drop-shadow(0 0 26px #a020f0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xtm-logo {
+    animation: none;
+    will-change: auto;
+  }
+}
